@@ -9,5 +9,7 @@ app_file: app.py
 pinned: false
 license: mit
 ---
+#App gradio pour la partie ia du projet trashClassifier
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
+Demo dispo : https://huggingface.co/spaces/ankz22/trash-classifier
