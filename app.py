@@ -5,13 +5,15 @@ import torch
 from torchvision import transforms
 import pandas as pd
 
-# DATA AUGMENTATION 
+# DATA AUGMENTATION ; source : https://pytorch.org/vision/stable/transforms.html   	huggingface.co/docs/transformers
+ 
 augment = transforms.Compose([
     transforms.RandomHorizontalFlip(p=0.5),
     transforms.RandomRotation(10),
     transforms.ColorJitter(brightness=0.2, contrast=0.2),
 ])
 
+# Modl pé entrainé pour classer des dechets : https://huggingface.co/tribber93/my-trash-classification
 MODEL_ID = "tribber93/my-trash-classification"
 trash_classifier = pipeline(
     "image-classification",
@@ -48,7 +50,7 @@ def classify_image(image: Image.Image):
         })
     return pd.DataFrame(rows)
 
-#GRADIO
+#GRADIO src : https://www.gradio.app/docs/
 interface = gr.Interface(
     fn=classify_image,
     inputs=gr.Image(type="pil"),
